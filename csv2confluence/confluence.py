@@ -1,11 +1,9 @@
-import requests
-
 from pandas import DataFrame
 from datetime import datetime
 from atlassian import Confluence
 
 from .process import get_data
-
+from .common import get_confluence
 
 def process(
     input,
@@ -79,13 +77,3 @@ def create_parent_body(data=None, fmt_fn=None):
         html_body += fmt_fn(data)
 
     return html_body
-
-
-def get_confluence(url=None, token=None, username=None, password=None):
-    if token:
-        session = requests.Session()
-        session.headers.update({"Authorization": f"Bearer {token}"})
-
-        return Confluence(url=url, session=session)
-    else:
-        return Confluence(url=url, username=username, password=password)
