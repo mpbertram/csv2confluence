@@ -1,0 +1,4 @@
+__pycache__/
+build/
+dist/
+csv2confluence.egg-info/
