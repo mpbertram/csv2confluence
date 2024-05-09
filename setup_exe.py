@@ -1,7 +1,8 @@
 from cx_Freeze import setup, Executable
 
 executables = [
-  Executable("csv2confluence/confluence.py", base=None)
+  Executable("to_confluence.py", base=None),
+  Executable("to_csv.py", base=None)
 ]
 
 packages = [
