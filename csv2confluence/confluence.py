@@ -34,6 +34,7 @@ def process(
 
     create_sub_pages(confluence, parent, data, sub_page_fmt_fn)
 
+    return parent
 
 def create_sub_pages(confluence: Confluence, parent, data, body_fmt_fn=None):
     for name, payload in data.items():

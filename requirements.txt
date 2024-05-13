@@ -2,3 +2,4 @@ pandas >= 2.1.4
 atlassian-python-api >= 3.41.8
 xlsxwriter >= 3.1.9
 lxml >= 5.2.1
+html5lib >= 1.1
