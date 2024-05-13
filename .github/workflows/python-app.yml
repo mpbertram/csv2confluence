@@ -24,10 +24,15 @@ jobs:
       with:
         python-version: "3.10"
     - name: Install dependencies
+      env: # Or as an environment variable
+        TEST_URL: ${{ secrets.TEST_URL }}  
+        TEST_TOKEN: ${{ secrets.TEST_TOKEN }}  
+        TEST_SPACE: ${{ secrets.TEST_SPACE }}  
+        TEST_PARENT: ${{ secrets.TEST_PARENT }}  
       run: |
         python -m pip install --upgrade pip
         pip install pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Test with pytest
       run: |
-        pytest --url=${TEST_URL} --token=${TEST_TOKEN} --space=${TEST_SPACE} --parent=${TEST_PARENT}
+        pytest --url="${TEST_URL}" --token="${TEST_TOKEN}" --space="${TEST_SPACE}" --parent="${TEST_PARENT}"
