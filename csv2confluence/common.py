@@ -8,12 +8,12 @@ def get_confluence(
 ):
     if token:
         session = requests.Session()
-        if url.find('atlassian.net') > -1:
-          # Confluence cloud supports Basic Auth
-          session.headers.update({"Authorization": f"Basic {token}"})
+        if url.find("atlassian.net") > -1:
+            # Confluence cloud supports Basic Auth
+            session.headers.update({"Authorization": f"Basic {token}"})
         else:
-          # Confluence OnPrem supports a bearer token
-          session.headers.update({"Authorization": f"Bearer {token}"})
+            # Confluence OnPrem supports a bearer token
+            session.headers.update({"Authorization": f"Bearer {token}"})
 
         return Confluence(url=url, session=session)
     else:
